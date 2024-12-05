@@ -1,4 +1,5 @@
-from collections import Counter, randint
+from collections import Counter
+from random import randint
 
 print("Массив:")
 a = [randint(0, 10) for i in range(10)]

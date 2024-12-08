@@ -1,6 +1,12 @@
-import random
+from random import randint
 
-x = 2
-a = [random.randint(0, 4) for i in range(100)]
-indices = [i for i, y in enumerate(a) if y == x]
-print(indices)
+
+def find_indices_of_x(arr, x):
+    indices = [i for i, value in enumerate(arr) if value == x]
+    return indices
+
+
+array = [randint(0, 4) for _ in range(20)]
+x = int(input("Введите значение X от 0 до 4): "))
+print("Массив:", array)
+print("Индексы элементов равных X:", find_indices_of_x(array, x))

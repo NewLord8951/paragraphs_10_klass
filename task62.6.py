@@ -1,19 +1,10 @@
-import random
-
-A = []
-s = 10
-chet = 0
-nechet = 0
-
-while s != 0:
-    i = random.randint(20, 100)
-    A.append(i)
-    s -= 1
-
-for j in A:
-    if j % 2 == 0:
-        chet = chet + 1
+from random import randint
+even = 0
+uneven = 0
+list_numebr = [randint(20, 100) for _ in range(1, 101)]
+for i in list_numebr:
+    if i % 2 == 0:
+        even += 1
     else:
-        nechet = nechet + 1
-
-print(chet, nechet)
+        uneven += 1
+print('четных-{}, нечетных-{}'.format(even, uneven))

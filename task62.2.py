@@ -1,3 +1,7 @@
-n = int(input("Введите число n: "))
-a = [2**i for i in range(1, n+1)]
-print(a)
+n = int(input("Введите число: "))
+
+primer = []
+for i in range(1, n + 1):
+    primer.append(2 ** 1)
+
+print(*primer)

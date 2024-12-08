@@ -1,17 +1,11 @@
-g = []
+def to_binary(n):
+    if n == 0:
+        return "0"
+    elif n == 1:
+        return "1"
+    else:
+        return to_binary(n // 2) + str(n % 2)
 
 
-def convert(b):
-    if (b == 0):
-        return g
-    dig = b % 2
-    g.append(dig)
-    convert(b // 2)
-
-
-a = int(input("Введите число: "))
-convert(a)
-g.reverse()
-print("Двоичная форма числа:")
-for i in g:
-    print(i)
+number = int(input("Введите число для перевод в двоичную систему: "))
+print(f"Число {number} в двоичной системе: {to_binary(number)}")

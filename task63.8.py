@@ -1,9 +1,13 @@
 from random import randint
 
-a = [randint(-100, 100) for _ in range(15)]
-print(a)
 
-k = 5
-m = 10
-a = a[:k] + a[m:k-1:-1] + a[m+1:]
-print(a)
+def reverse_selection(arr, k, m):
+    arr[k:m+1] = reversed(arr[k:m+1])
+    return arr
+
+
+array = [randint(0, 10)for _ in range(10)]
+k = int(input("введите индекс K: "))
+m = int(input("введите индекс M: "))
+print("исходный массив:", array)
+print("массив после реверса секции:", reverse_selection(array, k, m))

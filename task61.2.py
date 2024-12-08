@@ -1,29 +1,32 @@
 import turtle
 
+window = turtle.Screen()
+window.title('Sierpinski')
+window.bgcolor('lightblue')
 
-def sier(side, level):
-    if level == 1:
+alex = turtle.Turtle()
+
+
+def sierpinski(a, t, size):
+    if a == 0:
         for i in range(3):
-            turtle.fd(side)
-            turtle.left(120)
+            t.forward(size)
+            t.left(120)
+
     else:
-        sier(side/2, level-1)
-        turtle.fd(side/2)
-        sier(side/2, level-1)
-        turtle.bk(side/2)
-        turtle.left(60)
-        turtle.fd(side/2)
-        turtle.right(60)
-        sier(side/2, level-1)
-        turtle.left(60)
-        turtle.bk(side/2)
-        turtle.right(60)
+        sierpinski(a-1, t, size/2)
+        t.forward(size/2)
+        sierpinski(a-1, t, size/2)
+        t.forward(size/2)
+        t.left(120)
+        t.forward(size/2)
+        sierpinski(a-1, t, size/2)
+        t.forward(size/2)
+        t.left(120)
+        t.forward(size)
+        t.left(120)
 
 
-def main():
-    sier(200, 4)
+sierpinski(3, alex, 200)
 
-
-if __name__ == '__main__':
-    main()
-    turtle.mainloop()
+window.mainloop()

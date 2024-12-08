@@ -1,11 +1,14 @@
-import random
+from random import randint
 
-n = 6
 
-array = []
+def reverse_half(arr):
+    mid = len(arr) // 2
+    arr[:mid] = reversed(arr[:mid])
+    arr[mid:] = reversed(arr[mid:])
 
-for i in range(n):
-    array.append(random.randint(1, 10))
+    return arr
 
-print("Массив:")
-print(*array)
+
+array = [randint(0, 10) for _ in range(10)]
+print("Исходный массив:", array)
+print("Массив после реверса половин:", reverse_half(array))

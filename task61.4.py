@@ -1,12 +1,12 @@
-def f5(n):
+def oreh(n):
     if n == 1:
         return 1
     else:
         cnt = 0
         for i in range(1, n + 1):
-            cnt += f5(n - i)
+            cnt += oreh(n - i)
         return cnt
 
 
-N = int(input("Введите натуральное число: "))
-print(f"Количество разложений: {f5(N)}")
+uno = int(input("Введите число uno: "))
+print(f"Количество разложений: {oreh(uno)}")

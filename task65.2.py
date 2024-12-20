@@ -1,29 +1,36 @@
 import random
 
 
-def binary_search(arr, target):
-    left, right = 0, len(arr) - 1
-    steps = 0
-    while left <= right:
-        steps += 1
-        mid = (left + right) // 2
-        if arr[mid] == target:
-            return steps
-        elif arr[mid] < target:
-            right = mid - 1
+def binSearch(arr, target):
+    a = 0
+    b = len(arr) - 1
+    if target < arr[a] and target > arr[b]:
+        return -1, 0
+    if target == arr[a]:
+        return 0, 1
+    if target == arr[b]:
+        return (b, 1)
+    counter = 0
+
+    while True:
+        if (b-a) <= 1:
+            return (-1, counter)
+        counter += 1
+        c = (a + b) // 2
+        if target == arr[c]:
+            return (c, counter)
+        if arr[c] > target:
+            b = c
         else:
-            left = mid + 1
-    return steps
+            a = c
 
 
-def average_steps(num_trials=1000):
-    total_steps = 0
-    for _ in range(num_trials):
-        array = sorted(random.sample(range(101), 32))
-        target = random.randint(0, 100)
-        total_steps += binary_search(array, target)
-    average = total_steps / num_trials
-    print(f"Среднее число шагов при двоичном поиске: {average:.2f}")
+arr = []
+for i in range(33):
+    arr += [int(100 * random.random())]
 
-
-average_steps()
+a = int(100 * random.random())
+print(str(arr))
+print(a)
+res = binSearch(arr, a)
+print(res)

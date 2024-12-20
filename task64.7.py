@@ -1,12 +1,22 @@
-a = [4, 6, 3, 2, 7, 5, 4, 6, 8, 9, 4, 1, 2, 5, 5]
-n = len(a)
-for i in range(n-1):
-    for j in range(i+1, n):
-        if a[i] > a[j]:
-            a[i], a[j] = a[j], a[i]
-for i in range(n-1, 0, -1):
-    if a[i] == a[i-1]:
-        print(a[i])
-        break
+def find_max_duplicate(arr):
+    count = {}
+
+    for num in arr:
+        count[num] = count.get(num, 0) + 1
+
+    max_duplicate = None
+    for num, cnt in count.items():
+        if cnt > 1:
+            if max_duplicate is None or num > max_duplicate:
+                max_duplicate = num
+
+    return max_duplicate
+
+
+arr = [3, 5, 1, 3, 7, 8, 5, 2, 1]
+result = find_max_duplicate(arr)
+
+if result is not None:
+    print("Максимальное число, встречающееся несколько раз:", result)
 else:
-    print("Not any")
+    print("Нет чисел, которые встречаются несколько раз.")

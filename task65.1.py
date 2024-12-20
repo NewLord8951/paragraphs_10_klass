@@ -1,16 +1,11 @@
-arr = [7, 3, 13, 9, 7, 8, 2, 13, 11]
+def sort_and_find(arr, target):
+    for i in range(len(arr)):
+        for j in range(0, len(arr) - i - 1):
+            if arr[j] < arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return [x for x in arr if x == target]
 
-arr.sort(reverse=True)
 
-num = int(input("Введите число для поиска: "))
-
-result = [x for x in arr if x == num]
-
-if len(result) > 0:
-    print("Число", num, "найдено в отсортированном массиве")
-    print("Индексы числа", num, "в отсортированном массиве:")
-    for i, x in enumerate(arr):
-        if x == num:
-            print(i)
-else:
-    print("Число", num, "не найдено в отсортированном массиве")
+arr = [34, 23, 12, 45, 56, 78, 34, 23]
+target = 34
+print(sort_and_find(arr, target))

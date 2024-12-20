@@ -1,12 +1,11 @@
-from collections import Counter
 from random import randint
 
-print("Массив:")
-a = [randint(0, 10) for i in range(10)]
-print(a)
+spisok1 = []
+for i in range(10):
+    spisok1.append(randint(1, 10))
 
-print("После сортировки:")
-a = sorted(a)
-c = Counter(a)
-print(a)
-print(c)
+print(*spisok1)
+
+spisok1.sort()
+print(*spisok1)
+print(len(set(spisok1)))

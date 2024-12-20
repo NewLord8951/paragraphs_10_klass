@@ -1,8 +1,10 @@
-def main():
-    n = int(input())
-    a = input().split(maxsplit=n)
-    print(*sorted(a, key=lambda x: x[-1]))
+from random import randint
 
 
-if __name__ == "__main__":
-    main()
+def med():
+    syr = [randint(1, 50) for i in range(7)]
+    print(syr)
+    return sorted(syr, key=lambda x: x % 10)
+
+
+print(med())

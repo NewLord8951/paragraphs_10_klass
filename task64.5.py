@@ -1,6 +1,10 @@
-def sum_digits(n):
-    s = 0
-    while n:
-        s += n % 10
-        n //= 10
-    return s
+def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+
+
+def sort_by_digit_sum(arr):
+    return sorted(arr, key=sum_of_digits, reverse=True)
+
+
+arr = [34, 23, 12, 45, 56]
+print(sort_by_digit_sum(arr))

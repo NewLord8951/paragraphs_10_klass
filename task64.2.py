@@ -1,16 +1,13 @@
-def rock(s):
-    for i in range(len(s) - 1):
-        for j in range(len(s) - i - 1):
-            if s[j] > s[j + 1]:
-                s[j], s[j + 1] = s[j + 1], s[j]
-    return s
+def stone_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        max_index = 0
+        for j in range(1, n - i):
+            if arr[j] > arr[max_index]:
+                max_index = j
+        arr[max_index], arr[n - i - 1] = arr[n - j - 1], arr[max_index]
+        return arr
 
-
-li = [5, 2, 7, 4, 0, 9, 8, 6]
-n = 1
-while n < len(li):
-    for i in range(len(li) - n):
-        if li[i] > li[i + 1]:
-            li[i], li[i + 1] = li[i + 1], li[i]
-    n += 1
-print(li)
+    array = [3, 1, 4, 2, 5]
+    sorted_array = stone_sort(array)
+    print("Отсортировать массив методом камня:", sorted_array)
